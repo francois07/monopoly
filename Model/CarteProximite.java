@@ -8,7 +8,7 @@ public class CarteProximite extends Carte {
     }
 
     public void utiliser(Joueur joueur) { // aller a la gare la plus proche
-        joueur.avancer(this.nbCases);
+        joueur.avancer(((int)(joueur.getPos()/10)*10)+5);
     }
 
 }

@@ -7,7 +7,7 @@ public class CarteSortiePrison extends Carte {
     }
 
     public void utiliser(Joueur joueur) {
-
+        joueur.setPrisonStatus(false);
     }
 
 }

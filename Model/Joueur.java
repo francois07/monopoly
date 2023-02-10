@@ -10,9 +10,11 @@ public class Joueur {
 
     private int lancerDoubles;
 
-    private int cases;
+    private int pos;
 
     private int argent;
+
+    private boolean prisonStatus;
 
     private List<Carte> cartes = new ArrayList<Carte>();
 
@@ -24,8 +26,9 @@ public class Joueur {
         this.nom = nom;
         this.couleur = couleur;
         this.argent = argent;
-        this.cases = 0;
+        this.pos = 0;
         this.lancerDoubles = 0;
+        this.prisonStatus=false;
     }
 
     public String toString() {
@@ -39,12 +42,12 @@ public class Joueur {
         return (this.argent);
     }
 
-    public void avancer(final int ncases) {
-        this.cases = this.cases + ncases;
+    public void avancer(final int npos) {
+        this.pos = this.pos + npos;
     }
 
     public void teleporter(final int numeroCase) {
-        this.cases = numeroCase;
+        this.pos = numeroCase;
     }
 
     public void acheterPropriete(final Propriete propriete) {
@@ -65,5 +68,13 @@ public class Joueur {
 
     public void liberer() {
         this.enPrison = false;
+    }
+    
+    public void setPrisonStatus(boolean ps){
+        this.enPrison=ps;
+    }
+
+    public int getPos(){
+        return this.pos;
     }
 }
