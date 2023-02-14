@@ -4,6 +4,10 @@ import Model.Carte;
 import Model.CarteArgent;
 import Model.CarteMouvement;
 import Model.CarteTeleportation;
+import Model.Case;
+import Model.CaseCategorie;
+import Model.CasePropriete;
+import Model.Propriete;
 import View.GameInterface;
 import Model.CarteProximite;
 import Model.CarteSortiePrison;
@@ -21,7 +25,7 @@ public class Game {
         public Game() {
                 initJoueurs(0);
                 pioche=initPioches();
-                initCases();
+                initProperties();
         }
 
         public void setGUI(final GameInterface gameinterface) {
@@ -105,8 +109,13 @@ public class Game {
                 this.nb_joueurs=nb;
         }
 
-        public void initCases() {
-
+        public void initProperties() {
+                CasePropriete case1=new CasePropriete("Boulevard de Belleville", CaseCategorie.CASE_NORMALE, new Propriete("Boulevard de Belleville", new int[] {60,50,50,50,50,50}, new int[] {2,10,30,90,160,250}, null));
+                CasePropriete case3=new CasePropriete("Rue Lecourbe", CaseCategorie.CASE_NORMALE, new Propriete("Rue Lecourbe", new int[] {60,50,50,50,50,50}, new int[] {4,20,60,180,320,450}, null));
+                CasePropriete case6=new CasePropriete("Rue de Vaugirard", CaseCategorie.CASE_NORMALE, new Propriete("Rue de Vaugirard", new int[] {100,50,50,50,50,50}, new int[] {6,30,90,270,400,550}, null));
+                CasePropriete case8=new CasePropriete("Rue de Courcelles", CaseCategorie.CASE_NORMALE, new Propriete("Rue de Courcelles", new int[] {100,50,50,50,50,50}, new int[] {6,30,90,270,400,550}, null));
+                CasePropriete case9=new CasePropriete("Avenue de la république", CaseCategorie.CASE_NORMALE, new Propriete("Avenue de la république", new int[] {120,50,50,50,50,50}, new int[] {8,40,100,300,450,600}, null));
+                
         }
 
         public void start() {
