@@ -114,7 +114,24 @@ public class Game {
                 CasePropriete case3=new CasePropriete("Rue Lecourbe", CaseCategorie.CASE_NORMALE, new Propriete("Rue Lecourbe", new int[] {60,50,50,50,50,50}, new int[] {4,20,60,180,320,450}, null));
                 CasePropriete case6=new CasePropriete("Rue de Vaugirard", CaseCategorie.CASE_NORMALE, new Propriete("Rue de Vaugirard", new int[] {100,50,50,50,50,50}, new int[] {6,30,90,270,400,550}, null));
                 CasePropriete case8=new CasePropriete("Rue de Courcelles", CaseCategorie.CASE_NORMALE, new Propriete("Rue de Courcelles", new int[] {100,50,50,50,50,50}, new int[] {6,30,90,270,400,550}, null));
-                CasePropriete case9=new CasePropriete("Avenue de la république", CaseCategorie.CASE_NORMALE, new Propriete("Avenue de la république", new int[] {120,50,50,50,50,50}, new int[] {8,40,100,300,450,600}, null));
+                CasePropriete case9=new CasePropriete("Avenue de la République", CaseCategorie.CASE_NORMALE, new Propriete("Avenue de la république", new int[] {120,50,50,50,50,50}, new int[] {8,40,100,300,450,600}, null));
+                CasePropriete case11=new CasePropriete("Boulebard de la Villette", CaseCategorie.CASE_NORMALE, new Propriete("Boulebard de la Villette", new int[] {140,100,100,100,100,100}, new int[] {8,40,100,300,450,600}, null));
+                CasePropriete case13=new CasePropriete("Avenue de Neuilly", CaseCategorie.CASE_NORMALE, new Propriete("Avenue de Neuilly", new int[] {140,100,100,100,100,100}, new int[] {8,40,100,300,450,600}, null));
+                CasePropriete case14=new CasePropriete("Rue de Paradis", CaseCategorie.CASE_NORMALE, new Propriete("Rue de Paradis", new int[] {160,100,100,100,100,100}, new int[] {8,40,100,300,450,600}, null));
+                CasePropriete case16=new CasePropriete("Avenue Mozart", CaseCategorie.CASE_NORMALE, new Propriete("Avenue Mozart", new int[] {180,100,100,100,100,100}, new int[] {8,40,100,300,450,600}, null));
+                CasePropriete case18=new CasePropriete("Boulevard Saint-Michel", CaseCategorie.CASE_NORMALE, new Propriete("Boulevard Saint-Michel", new int[] {180,100,100,100,100,100}, new int[] {8,40,100,300,450,600}, null));
+                CasePropriete case19=new CasePropriete("Place Pigalle", CaseCategorie.CASE_NORMALE, new Propriete("Place Pigalle", new int[] {200,100,100,100,100,100}, new int[] {8,40,100,300,450,600}, null));
+                CasePropriete case21=new CasePropriete("Avenue Matignon", CaseCategorie.CASE_NORMALE, new Propriete("Avenue Matignon", new int[] {220,150,150,150,150,150}, new int[] {8,40,100,300,450,600}, null));
+                CasePropriete case23=new CasePropriete("Boulevard Malesherbes", CaseCategorie.CASE_NORMALE, new Propriete("Boulevard Malesherbes", new int[] {220,150,150,150,150,150}, new int[] {8,40,100,300,450,600}, null));
+                CasePropriete case24=new CasePropriete("Avenue Henri-Martin", CaseCategorie.CASE_NORMALE, new Propriete("Avenue Henri-Martin", new int[] {240,150,150,150,150,150}, new int[] {8,40,100,300,450,600}, null));
+                CasePropriete case26=new CasePropriete("Faubourg Saint-Honoré", CaseCategorie.CASE_NORMALE, new Propriete("Faubourg Saint-Honoré", new int[] {260,150,150,150,150,150}, new int[] {8,40,100,300,450,600}, null));
+                CasePropriete case27=new CasePropriete("Place de la Bourse", CaseCategorie.CASE_NORMALE, new Propriete("Place de la Bourse", new int[] {260,150,150,150,150,150}, new int[] {8,40,100,300,450,600}, null));
+                CasePropriete case29=new CasePropriete("Rue la Fayette", CaseCategorie.CASE_NORMALE, new Propriete("Rue la Fayette", new int[] {280,150,150,150,150,150}, new int[] {8,40,100,300,450,600}, null));
+                CasePropriete case31=new CasePropriete("Avenue de Breteuil", CaseCategorie.CASE_NORMALE, new Propriete("Avenue de Breteuil", new int[] {300,200,200,200,200,200}, new int[] {8,40,100,300,450,600}, null));
+                CasePropriete case32=new CasePropriete("Avenue Foch", CaseCategorie.CASE_NORMALE, new Propriete("Avenue Foch", new int[] {300,200,200,200,200,200}, new int[] {8,40,100,300,450,600}, null));
+                CasePropriete case34=new CasePropriete("Boulevard des Capucines", CaseCategorie.CASE_NORMALE, new Propriete("Boulevard des Capucines", new int[] {320,200,200,200,200,200}, new int[] {8,40,100,300,450,600}, null));
+                CasePropriete case37=new CasePropriete("Avenue des Champs-Elysées", CaseCategorie.CASE_NORMALE, new Propriete("Avenue des Champs-Elysées", new int[] {350,200,200,200,200,200}, new int[] {8,40,100,300,450,600}, null));
+                CasePropriete case39=new CasePropriete("Rue de la Paix", CaseCategorie.CASE_NORMALE, new Propriete("Rue de la Paix", new int[] {400,200,200,200,200,200}, new int[] {8,40,100,300,450,600}, null));
                 
         }
 
