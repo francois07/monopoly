@@ -2,20 +2,20 @@ package View;
 
 import javax.swing.*;
 
-import Controller.Game;
+import Controller.Plateau;
 
 import java.awt.*;
 import java.awt.event.*;
 
 public class GameInterface implements ActionListener {
-  private Game game;
+  private Plateau plateau;
   private JFrame frame;
   private JTextField entryField;
   private JTextArea log;
   private JLabel image;
 
-  public GameInterface(final Game game) {
-    this.game = game;
+  public GameInterface(final Plateau plateau) {
+    this.plateau = plateau;
     this.createInterface();
   }
 
@@ -69,6 +69,8 @@ public class GameInterface implements ActionListener {
       }
     });
 
+    this.entryField.addActionListener(this);
+
     this.frame.pack();
     this.frame.setVisible(true);
     this.frame.requestFocus();
@@ -89,6 +91,6 @@ public class GameInterface implements ActionListener {
     String input = this.entryField.getText();
     this.entryField.setText("");
 
-    // this.game.interpretCommand(input);
+    this.plateau.parseCommand(input);
   } // processCommand()
 }

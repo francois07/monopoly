@@ -3,6 +3,8 @@ package Model;
 import java.util.ArrayList;
 import java.util.List;
 
+import Controller.Plateau;
+
 public class Joueur {
     private String nom;
 
@@ -22,19 +24,20 @@ public class Joueur {
 
     private boolean enPrison;
 
-    public Joueur(final String nom, final Couleur couleur, final int argent) {
+    private Plateau plateau;
+
+    public Joueur(Plateau plateau, final String nom) {
+        this.plateau = plateau;
         this.nom = nom;
-        this.couleur = couleur;
-        this.argent = argent;
+        this.argent = 20000;
         this.pos = 0;
         this.lancerDoubles = 0;
-        this.prisonStatus=false;
+        this.prisonStatus = false;
     }
 
     public String toString() {
         // Retourne le nom du joueur sous le format "<Nom> (<Couleur>)"
-        String res = String.format("%s (%s)", this.nom, this.couleur);
-        return (res);
+        return this.nom;
     }
 
     public int modifierArgent(final int somme) {
@@ -69,12 +72,16 @@ public class Joueur {
     public void liberer() {
         this.enPrison = false;
     }
-    
-    public void setPrisonStatus(boolean ps){
-        this.enPrison=ps;
+
+    public void setPrisonStatus(boolean ps) {
+        this.enPrison = ps;
     }
 
-    public int getPos(){
+    public int getPos() {
         return this.pos;
+    }
+
+    public Plateau getPlateau() {
+        return this.plateau;
     }
 }
