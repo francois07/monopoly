@@ -4,19 +4,18 @@ import Controller.Plateau;
 import Model.Joueur;
 import View.GameInterface;
 
-public class LancerCommand extends Command {
-  public LancerCommand() {
+public class FinirCommand extends Command {
+  public FinirCommand() {
   }
 
   public void execute(Joueur joueur) {
     Plateau plateau = joueur.getPlateau();
     GameInterface gui = Command.getJoueurInterface(joueur);
-    int res = plateau.lancerDes(joueur);
 
-    gui.println(String.format("%s avance de %d cases\n", joueur.toString(), res));
+    gui.println(String.format("%s termine son tour", joueur.toString()));
 
-    joueur.avancer(res);
+    plateau.nextJoueur();
 
-    plateau.printInfos();
+    plateau.printStartOfTurnInfos();
   }
 }

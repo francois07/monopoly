@@ -7,36 +7,25 @@ import Controller.Plateau;
 
 public class Joueur {
     private String nom;
-
-    private Couleur couleur;
-
     private int lancerDoubles;
-
     private int pos;
-
     private int argent;
-
-    private boolean prisonStatus;
-
     private List<Carte> cartes = new ArrayList<Carte>();
-
     private List<Propriete> proprietes = new ArrayList<Propriete>();
-
     private boolean enPrison;
-
     private Plateau plateau;
+
+    private boolean aLance;
 
     public Joueur(Plateau plateau, final String nom) {
         this.plateau = plateau;
         this.nom = nom;
-        this.argent = 20000;
+        this.argent = 150000;
         this.pos = 0;
         this.lancerDoubles = 0;
-        this.prisonStatus = false;
     }
 
     public String toString() {
-        // Retourne le nom du joueur sous le format "<Nom> (<Couleur>)"
         return this.nom;
     }
 
@@ -44,13 +33,25 @@ public class Joueur {
         return this.argent;
     }
 
-    public int modifierArgent(final int somme) {
+    public int ajouterArgent(final int somme) {
         this.argent = this.argent + somme;
         return (this.argent);
     }
 
     public void avancer(final int npos) {
+        List<Case> cases = this.plateau.getCases();
+        int n = cases.size();
         this.pos = this.pos + npos;
+
+        if (this.pos > n) {
+            this.plateau.getGUI()
+                    .println("Vous avez fait un tour complet! Gagnez 20000 francs. Vous possedez maintenant "
+                            + this.argent + " francs");
+            this.pos = this.pos % n;
+            this.ajouterArgent(20000);
+        }
+
+        cases.get(this.pos).execute(this);
     }
 
     public void teleporter(final int numeroCase) {
@@ -59,7 +60,8 @@ public class Joueur {
 
     public void acheterPropriete(final Propriete propriete) {
         this.proprietes.add(propriete);
-        this.modifierArgent(-propriete.getPrix()[propriete.getNiveau()]);
+        propriete.setProprietaire(this);
+        this.ajouterArgent(-propriete.getPrix());
     }
 
     public int incrementLancerDoubles() {
@@ -87,5 +89,18 @@ public class Joueur {
 
     public Plateau getPlateau() {
         return this.plateau;
+    }
+
+    public void donnerArgent(Joueur joueur, int somme) {
+        this.argent -= somme;
+        joueur.argent += somme;
+    }
+
+    public boolean equals(Joueur joueur) {
+        return this.nom.equals(joueur.nom);
+    }
+
+    public boolean doitLancer() {
+        return !aLance;
     }
 }

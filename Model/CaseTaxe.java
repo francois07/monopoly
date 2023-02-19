@@ -9,6 +9,10 @@ public class CaseTaxe extends Case {
     }
 
     public String toString() {
-        return String.format("C'est l'heure des impots ! Vous payez %d à la banque", this.montant);
+        return String.format("C'est l\'heure des impots ! Vous payez %d à la banque", this.montant);
+    }
+
+    public void execute(Joueur joueur) {
+        joueur.getPlateau().ajouterTaxe(this.montant);
     }
 }

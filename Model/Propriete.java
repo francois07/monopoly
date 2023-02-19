@@ -23,12 +23,16 @@ public class Propriete {
         return (this.nom);
     }
 
-    public int[] getPrix() {
-        return (this.prix);
+    public int getPrix() {
+        return this.prix[this.niveau];
     }
 
-    public int[] getLoyer() {
-        return (this.loyer);
+    public int getPrixAmelioration() {
+        return this.prix[this.niveau + 1];
+    }
+
+    public int getLoyer() {
+        return this.loyer[this.niveau];
     }
 
     public Joueur getProprietaire() {
@@ -43,20 +47,11 @@ public class Propriete {
         this.nom = nom;
     }
 
-    public void setPrix(final int[] prix) {
-        this.prix = prix;
-    }
-
-    public void setLoyer(final int[] loyer) {
-        this.loyer = loyer;
-    }
-
     public void setProprietaire(final Joueur proprietaire) {
         this.proprietaire = proprietaire;
     }
 
-    public void setNiveau(final int niveau) {
-        this.niveau = niveau;
+    public void augmenterNiveau(final int niveau) {
+        this.niveau += 1;
     }
-
 }

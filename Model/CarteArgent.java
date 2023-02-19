@@ -9,7 +9,7 @@ public class CarteArgent extends Carte {
     }
 
     public void utiliser(Joueur joueur) {
-        joueur.modifierArgent(this.somme);
+        joueur.ajouterArgent(this.somme);
     }
 
 }

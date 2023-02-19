@@ -9,9 +9,9 @@ import java.util.Random;
 import java.util.Scanner;
 import java.util.Stack;
 import java.util.StringJoiner;
-import java.util.Locale.Category;
 
 import Commands.Command;
+import Commands.CommandWord;
 import Model.Carte;
 import Model.CarteArgent;
 import Model.Case;
@@ -49,7 +49,7 @@ public class Plateau {
 
     public Plateau() {
         this.parser = new Parser();
-        this.tour = 1;
+        this.tour = 0;
         this.taxes = 0;
         this.joueurs = new ArrayList<Joueur>();
         this.cases = new ArrayList<Case>();
@@ -60,7 +60,7 @@ public class Plateau {
         this.gameInterface = gameInterface;
         this.gameInterface
                 .println(
-                        "Veuillez inscrire au minimum 4 joueurs avec la commande inscrire <nom> [<noms>...]\nUne fois l'inscription terminée, utilisez la commande start");
+                        "Veuillez inscrire au minimum 4 joueurs avec la commande inscrire <nom> [<noms>...]\nUne fois l'inscription terminee, utilisez la commande start");
     }
 
     public GameInterface getGUI() {
@@ -95,6 +95,13 @@ public class Plateau {
             this.gameInterface.println("> " + cmd);
             Command fetchedCmd = this.parser.getCommand(cmd);
 
+            if (!fetchedCmd.getCommandWord().toString().equals(CommandWord.LANCER.toString())) {
+                if (currentJoueur.doitLancer()) {
+                    this.gameInterface.println("Lance d\'abord les des !");
+                    return;
+                }
+            }
+
             fetchedCmd.execute(this.currentJoueur);
         }
 
@@ -122,8 +129,6 @@ public class Plateau {
 
         int total = r1 + r2;
 
-        joueur.avancer(r1 + r2);
-
         if (r1 == r2) {
             int d = joueur.incrementLancerDoubles();
 
@@ -140,7 +145,7 @@ public class Plateau {
 
     public void printStartOfTurnInfos() {
         this.gameInterface.println(String.format(
-                "C\'est au tour de %s de lancer les dès (avec la command lancer). Tu possède actuellement %d francs",
+                "C\'est au tour de %s de lancer les des (avec la command lancer). Tu possede actuellement %d francs",
                 currentJoueur.toString(), currentJoueur.getArgent()));
     }
 
@@ -234,5 +239,27 @@ public class Plateau {
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
+    }
+
+    public List<Case> getCases() {
+        return this.cases;
+    }
+
+    public void ajouterTaxe(int somme) {
+        this.taxes += somme;
+    }
+
+    public int viderTaxe() {
+        int res = this.taxes;
+        this.taxes = 0;
+
+        return res;
+    }
+
+    public Joueur nextJoueur() {
+        this.tour = (this.tour + 1) % this.joueurs.size();
+        this.currentJoueur = this.joueurs.get(tour);
+
+        return this.currentJoueur;
     }
 }

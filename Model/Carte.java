@@ -23,7 +23,7 @@ public abstract class Carte {
         return (this.description);
     }
 
-    public boolean getStockable() {
+    public boolean isStockable() {
         return (this.stockable);
     }
 }
