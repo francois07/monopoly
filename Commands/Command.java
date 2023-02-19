@@ -19,6 +19,10 @@ public abstract class Command {
   public Command() {
   }
 
+  public void setCommandWord(CommandWord c) {
+    this.aCommandWord = c;
+  }
+
   /**
    * @return the first word of the command.
    */

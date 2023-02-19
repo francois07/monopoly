@@ -257,6 +257,8 @@ public class Plateau {
     }
 
     public Joueur nextJoueur() {
+        this.currentJoueur.switchALancer();
+
         this.tour = (this.tour + 1) % this.joueurs.size();
         this.currentJoueur = this.joueurs.get(tour);
 

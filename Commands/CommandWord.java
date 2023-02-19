@@ -17,6 +17,7 @@ public enum CommandWord {
   CommandWord(final String pS, final Command pCommand) {
     this.aCommandWord = pS;
     this.aCommand = pCommand;
+    this.aCommand.setCommandWord(this);
   }
 
   public String toString() {

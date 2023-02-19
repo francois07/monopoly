@@ -17,6 +17,8 @@ public class LancerCommand extends Command {
 
     joueur.avancer(res);
 
+    joueur.switchALancer();
+
     plateau.printInfos();
   }
 }

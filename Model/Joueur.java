@@ -103,4 +103,8 @@ public class Joueur {
     public boolean doitLancer() {
         return !aLance;
     }
+
+    public void switchALancer() {
+        this.aLance = !this.aLance;
+    }
 }
