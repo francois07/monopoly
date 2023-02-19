@@ -89,6 +89,7 @@ public class Plateau {
                 this.inscription = false;
                 this.currentJoueur = joueurs.get(0);
                 this.gameInterface.println("La partie peut commencer !");
+                this.printStartOfTurnInfos();
             }
         } else {
             this.gameInterface.println("> " + cmd);
@@ -119,6 +120,8 @@ public class Plateau {
         int r1 = r.nextInt(5) + 1;
         int r2 = r.nextInt(5) + 1;
 
+        int total = r1 + r2;
+
         joueur.avancer(r1 + r2);
 
         if (r1 == r2) {
@@ -129,10 +132,21 @@ public class Plateau {
             }
             this.gameInterface.println(String.format("Lancer double ! (%d & %d) On relance...\n", r1, r2));
 
-            lancerDes(joueur);
+            total += lancerDes(joueur);
         }
 
-        return r1 + r2;
+        return total;
+    }
+
+    public void printStartOfTurnInfos() {
+        this.gameInterface.println(String.format(
+                "C\'est au tour de %s de lancer les dès (avec la command lancer). Tu possède actuellement %d francs",
+                currentJoueur.toString(), currentJoueur.getArgent()));
+    }
+
+    public void printInfos() {
+        String caseNom = this.cases.get(currentJoueur.getPos()).toString();
+        this.gameInterface.println(caseNom);
     }
 
     public void initCases(String path) {

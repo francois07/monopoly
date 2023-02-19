@@ -14,5 +14,6 @@ public class LancerCommand extends Command {
     int res = plateau.lancerDes(joueur);
 
     gui.println(String.format("%s avance de %d cases\n", joueur.toString(), res));
+    plateau.printInfos();
   }
 }

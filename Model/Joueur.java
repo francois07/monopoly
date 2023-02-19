@@ -40,6 +40,10 @@ public class Joueur {
         return this.nom;
     }
 
+    public int getArgent() {
+        return this.argent;
+    }
+
     public int modifierArgent(final int somme) {
         this.argent = this.argent + somme;
         return (this.argent);

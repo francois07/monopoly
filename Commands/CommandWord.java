@@ -6,8 +6,8 @@ package Commands;
 
 public enum CommandWord {
   HELP("help", new HelpCommand()),
-  UNKNOWN("?", new UnknownCommand());
-  ;
+  UNKNOWN("?", new UnknownCommand()),
+  LANCER("lancer", new LancerCommand());
 
   private String aCommandWord;
   private Command aCommand;
