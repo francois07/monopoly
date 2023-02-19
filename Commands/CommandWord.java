@@ -5,6 +5,7 @@ package Commands;
  */
 
 public enum CommandWord {
+  HELP("help", new HelpCommand()),
   UNKNOWN("?", new UnknownCommand());
   ;
 

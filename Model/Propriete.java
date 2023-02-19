@@ -11,11 +11,11 @@ public class Propriete {
 
     private Joueur proprietaire;
 
-    public Propriete(final String nom, final int[] prix, final int[] loyer, final Joueur proprietaire) {
+    public Propriete(final String nom, final int[] prix, final int[] loyer) {
         this.nom = nom;
         this.prix = prix;
         this.loyer = loyer;
-        this.proprietaire = proprietaire;
+        this.proprietaire = null;
         this.niveau = 0;
     }
 

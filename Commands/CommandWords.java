@@ -1,6 +1,7 @@
 package Commands;
 
 import java.util.HashMap;
+import java.util.StringJoiner;
 
 /**
  * The CommandWords class.
@@ -45,9 +46,11 @@ public class CommandWords {
    * @return All the command words as a String.
    */
   public String getCommandList() {
-    String vS = "";
+    StringJoiner res = new StringJoiner("\n- ", "- ", "");
+
     for (String i : this.aValidCommands.keySet())
-      vS += i + " ";
-    return vS;
+      res.add(i);
+
+    return res.toString();
   }
 } // CommandWords

@@ -1,0 +1,31 @@
+CARTE_TELEPORTATION,Rendez-vous à la Rue de la Paix,false,39
+CARTE_TELEPORTATION,Avancez jusqu’à la case départ,false,0
+CARTE_TELEPORTATION,Rendez-vous à l’Avenue Henri-Martin. Si vous passez par la case départ recevez 200,false,24
+CARTE_TELEPORTATION,Avancez au Boulevard de La Villette. Si vous passez par la case départ recevez 200,false,11
+CARTE_TELEPORTATION,Avancez jusqu’à la Gare de Lyon. Si vous passez par la case départ recevez 200,false,15
+CARTE_TELEPORTATION,Aller en prison. Rendez-vous directement en prison. Ne franchissez pas par la case départ ne touchez pas 200,false,10,true
+CARTE_TELEPORTATION,Placez-vous sur la case départ,false,0
+CARTE_TELEPORTATION,Aller en prison. Rendez-vous directement à la prison. Ne franchissez pas par la case départ ne touchez pas 200,false,10,true
+CARTE_TELEPORTATION,Retournez à Belleville,false,0
+CARTE_PROXIMITE,Rendez-vous à la gare la plus proche. Si vous passez par la case départ recevez 200,false
+CARTE_SORTIE_PRISON,Vous êtes libéré de prison. Cette carte peut être conservée jusqu’à ce qu’elle soit utilisée,true
+CARTE_SORTIE_PRISON,Vous êtes libéré de prison. Cette carte peut être conservée jusqu’à ce qu’elle soit utilisée,true
+CARTE_MOUVEMENT,Reculez de trois cases,false,-3
+CARTE_ARGENT,Vous êtes imposé pour les réparations de voirie à raison de 50 par maison et 150 par hôtel,false,0
+CARTE_ARGENT,Vous avez gagné le prix de mots croisés. Recevez 100,false,100
+CARTE_ARGENT,La banque vous verse un dividende de 50,false,50
+CARTE_ARGENT,Faites des réparations dans toutes vos maisons. Versez pour chaque maison 25. Versez pour chaque hôtel 100,false,0
+CARTE_ARGENT,Amende pour excès de vitesse versez 15,false,-15
+CARTE_ARGENT,Payez pour frais de scolarité 150,false,-150
+CARTE_ARGENT,Amende pour ivresse 20,false,-20
+CARTE_ARGENT,Votre immeuble et votre prêt rapportent. Vous devez toucher 150,false,150
+CARTE_ARGENT,Erreur de la banque en votre faveur.Recevez 200,false,200
+CARTE_ARGENT,Payez la note du médecin 50,false,-50
+CARTE_ARGENT,La vente de votre stock vous rapporte 50,false,50
+CARTE_ARGENT,Recevez votre revenu annuel 100,false,100
+CARTE_ARGENT,Les contributions vous remboursent la somme de 30,false,30
+CARTE_ARGENT,Recevez votre intérêt sur l’emprunt à 7% égal à 40,false,40
+CARTE_ARGENT,Payez votre Police d’Assurance 50,false,-50
+CARTE_ARGENT,Payez une amende de 20,false,-20
+CARTE_ARGENT,Vous avez gagné le deuxième Prix de Beauté. Recevez 20,false,20
+CARTE_ARGENT,Vous héritez 100,false,100
