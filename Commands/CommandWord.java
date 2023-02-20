@@ -1,9 +1,5 @@
 package Commands;
 
-/**
- * All the game's command words as constants.
- */
-
 public enum CommandWord {
   HELP("help", new HelpCommand()),
   UNKNOWN("?", new UnknownCommand()),

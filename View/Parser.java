@@ -5,24 +5,14 @@ import java.util.StringTokenizer;
 import Commands.CommandWords;
 import Commands.Command;
 
-/**
- * The Parser class, used to recognize and execute commands.
- */
 public class Parser {
 
-  private CommandWords CommandWords; // holds all valid command words
+  private CommandWords CommandWords;
 
-  /**
-   * Create a new Parser.
-   */
   public Parser() {
     this.CommandWords = new CommandWords();
-  } // Parser()
+  }
 
-  /**
-   * Get a new command from the user. The command is read by
-   * parsing the 'inputLine'.
-   */
   public Command getCommand(final String pInputLine) {
     String vWord1;
     String vWord2;
@@ -30,12 +20,12 @@ public class Parser {
     StringTokenizer tokenizer = new StringTokenizer(pInputLine);
 
     if (tokenizer.hasMoreTokens())
-      vWord1 = tokenizer.nextToken(); // get first word
+      vWord1 = tokenizer.nextToken();
     else
       vWord1 = null;
 
     if (tokenizer.hasMoreTokens())
-      vWord2 = tokenizer.nextToken(); // get second word
+      vWord2 = tokenizer.nextToken();
     else
       vWord2 = null;
 
@@ -43,14 +33,10 @@ public class Parser {
     pC.setSecondWord(vWord2);
 
     return pC;
-  } // getCommand(.)
+  }
 
-  /**
-   * Returns a String with valid command words.
-   */
-  public String getCommandString() // was showCommands()
-  {
+  public String getCommandString() {
     return this.CommandWords.getCommandList();
-  } // getCommandString()
+  }
 
-} // Parser
+}

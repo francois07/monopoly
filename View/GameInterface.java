@@ -81,19 +81,13 @@ public class GameInterface implements ActionListener {
   }
 
   public void actionPerformed(final ActionEvent event) {
-    // no need to check the type of action at the moment
-    // because there is only one possible action (text input) :
-    this.processCommand(); // never suppress this line
-  } // actionPerformed(.)
+    this.processCommand();
+  }
 
-  /**
-   * A command has been entered. Read the command and do whatever is
-   * necessary to process it.
-   */
   private void processCommand() {
     String input = this.entryField.getText();
     this.entryField.setText("");
 
     this.plateau.parseCommand(input);
-  } // processCommand()
+  }
 }
