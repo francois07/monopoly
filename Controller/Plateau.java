@@ -121,6 +121,8 @@ public class Plateau {
 
         int total = r1 + r2;
 
+        this.gameInterface.println(String.format("Vous avez fait %d + %d = %d\n", r1, r2, total));
+
         if (r1 == r2) {
             int d = joueur.incrementLancerDoubles();
 
