@@ -1,4 +1,6 @@
-package Model;
+package Model.Cases;
+
+import Model.Joueur;
 
 public class CaseTaxe extends Case {
     private int montant;

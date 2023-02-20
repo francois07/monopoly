@@ -1,8 +1,8 @@
-package Model;
+package Model.Cartes;
+
+import Model.Joueur;
 
 public class CarteProximite extends Carte {
-    private int nbCases;
-
     public CarteProximite(String nom, String description, boolean stockable) {
         super(nom, description, stockable);
     }

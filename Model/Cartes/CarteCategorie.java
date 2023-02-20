@@ -1,4 +1,4 @@
-package Model;
+package Model.Cartes;
 
 public enum CarteCategorie {
   CARTE_PROXIMITE("Carte Proximité"),

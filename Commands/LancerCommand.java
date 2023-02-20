@@ -20,5 +20,7 @@ public class LancerCommand extends Command {
     joueur.switchALancer();
 
     plateau.printInfos();
+
+    joueur.getCurrentCase().execute(joueur);
   }
 }

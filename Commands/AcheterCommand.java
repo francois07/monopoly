@@ -1,14 +1,13 @@
 package Commands;
 
-import java.util.List;
 import java.util.Objects;
 
 import Controller.Plateau;
-import Model.Case;
-import Model.CaseCategorie;
-import Model.CasePropriete;
 import Model.Joueur;
 import Model.Propriete;
+import Model.Cases.Case;
+import Model.Cases.CaseCategorie;
+import Model.Cases.CasePropriete;
 import View.GameInterface;
 
 public class AcheterCommand extends Command {
@@ -20,7 +19,8 @@ public class AcheterCommand extends Command {
     Case caseAcheter = plateau.getCases().get(joueur.getPos());
     GameInterface gui = Command.getJoueurInterface(joueur);
 
-    if (caseAcheter.getCategorie() == CaseCategorie.CASE_NORMALE) {
+    if (caseAcheter.getCategorie() == CaseCategorie.CASE_NORMALE
+        || caseAcheter.getCategorie() == CaseCategorie.CASE_GARE) {
       Propriete propriete = ((CasePropriete) caseAcheter).getPropriete();
 
       if (Objects.isNull(propriete.getProprietaire())) {

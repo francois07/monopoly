@@ -1,4 +1,6 @@
-package Model;
+package Model.Cartes;
+
+import Model.Joueur;
 
 public abstract class Carte {
     private String nom;

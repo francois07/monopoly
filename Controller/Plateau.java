@@ -12,19 +12,25 @@ import java.util.StringJoiner;
 
 import Commands.Command;
 import Commands.CommandWord;
-import Model.Carte;
-import Model.CarteArgent;
-import Model.Case;
-import Model.CaseCategorie;
-import Model.CasePropriete;
-import Model.CaseTaxe;
-import Model.CarteCategorie;
-import Model.CarteMouvement;
-import Model.CarteProximite;
-import Model.CarteSortiePrison;
-import Model.CarteTeleportation;
+import Model.Gare;
 import Model.Joueur;
 import Model.Propriete;
+import Model.Cartes.Carte;
+import Model.Cartes.CarteArgent;
+import Model.Cartes.CarteCategorie;
+import Model.Cartes.CarteMouvement;
+import Model.Cartes.CarteProximite;
+import Model.Cartes.CarteSortiePrison;
+import Model.Cartes.CarteTeleportation;
+import Model.Cases.Case;
+import Model.Cases.CaseCarte;
+import Model.Cases.CaseCategorie;
+import Model.Cases.CaseDepart;
+import Model.Cases.CaseGoPrison;
+import Model.Cases.CaseParc;
+import Model.Cases.CasePrison;
+import Model.Cases.CasePropriete;
+import Model.Cases.CaseTaxe;
 import View.GameInterface;
 import View.Parser;
 
@@ -121,13 +127,17 @@ public class Plateau {
 
         int total = r1 + r2;
 
-        this.gameInterface.println(String.format("Vous avez fait %d + %d = %d\n", r1, r2, total));
-
         if (r1 == r2) {
             int d = joueur.incrementLancerDoubles();
 
+            if (joueur.isEnPrison()) {
+                this.gameInterface.println("Vous sortez de prison !");
+                joueur.liberer();
+            }
+
             if (d == 0) {
-                joueur.teleporter(41);
+                this.gameInterface.println("3 doubles d\'affile... Vous etes suspect, allez en prison !");
+                joueur.emprisonner();
             }
             this.gameInterface.println(String.format("Lancer double ! (%d & %d) On relance...\n", r1, r2));
 
@@ -138,9 +148,13 @@ public class Plateau {
     }
 
     public void printStartOfTurnInfos() {
-        this.gameInterface.println(String.format(
-                "C\'est au tour de %s de lancer les des (avec la command lancer). Tu possede actuellement %d francs",
-                currentJoueur.toString(), currentJoueur.getArgent()));
+        if (this.joueurs.size() != 1) {
+            this.gameInterface.println(String.format(
+                    "C\'est au tour de %s de lancer les des (avec la command lancer). Tu possede actuellement %d francs",
+                    currentJoueur.toString(), currentJoueur.getArgent()));
+        } else {
+            this.gameInterface.println(String.format("%s a gagne la partie !", this.joueurs.get(0).toString()));
+        }
     }
 
     public void printInfos() {
@@ -173,6 +187,28 @@ public class Plateau {
                         break;
                     case CASE_TAXE:
                         newCase = new CaseTaxe(nom, categorie, Integer.parseInt(lineSplit[2]));
+                        break;
+                    case CASE_CARTE:
+                        newCase = new CaseCarte(nom, categorie);
+                        break;
+                    case CASE_GOPRISON:
+                        newCase = new CaseGoPrison(nom, categorie);
+                        break;
+                    case CASE_DEPART:
+                        newCase = new CaseDepart(nom, categorie);
+                        break;
+                    case CASE_PARC:
+                        newCase = new CaseParc(nom, categorie);
+                        break;
+                    case CASE_PRISON:
+                        newCase = new CasePrison(nom, categorie);
+                        break;
+                    case CASE_GARE:
+                        int p = Integer.parseInt(lineSplit[2]);
+                        loyer = Arrays.copyOfRange(lineSplit, 3, lineSplit.length - 1);
+                        loyerInt = Arrays.stream(loyer).mapToInt(Integer::parseInt).toArray();
+
+                        newCase = new CasePropriete(nom, categorie, new Gare(nom, p, loyerInt));
                         break;
                     default:
                         throw new Error("Categorie invalide");
@@ -257,5 +293,20 @@ public class Plateau {
         this.currentJoueur = this.joueurs.get(tour);
 
         return this.currentJoueur;
+    }
+
+    public boolean piocheEstVide() {
+        return this.pioche.isEmpty();
+    }
+
+    public void applyLoss() {
+        for (int i = 0; i < this.joueurs.size(); i++) {
+            Joueur joueur = this.joueurs.get(i);
+
+            if (joueur.getArgent() <= 0) {
+                this.gameInterface.println(String.format("%s a fait faillite !", joueur.toString()));
+                this.joueurs.remove(i);
+            }
+        }
     }
 }

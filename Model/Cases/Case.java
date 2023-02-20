@@ -1,4 +1,6 @@
-package Model;
+package Model.Cases;
+
+import Model.Joueur;
 
 public abstract class Case {
     private String nom;

@@ -1,4 +1,6 @@
-package Model;
+package Model.Cartes;
+
+import Model.Joueur;
 
 public class CarteArgent extends Carte {
     private int somme;
@@ -9,6 +11,7 @@ public class CarteArgent extends Carte {
     }
 
     public void utiliser(Joueur joueur) {
+        joueur.getPlateau().getGUI().println(String.format("Vous gagnez %d francs", this.somme));
         joueur.ajouterArgent(this.somme);
     }
 

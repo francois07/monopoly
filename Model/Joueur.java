@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import Controller.Plateau;
+import Model.Cartes.Carte;
+import Model.Cases.Case;
 
 public class Joueur {
     private String nom;
@@ -39,6 +41,9 @@ public class Joueur {
     }
 
     public void avancer(final int npos) {
+        if (this.enPrison)
+            return;
+
         List<Case> cases = this.plateau.getCases();
         int n = cases.size();
         this.pos = this.pos + npos;
@@ -71,16 +76,12 @@ public class Joueur {
     }
 
     public void emprisonner() {
-        this.teleporter(41);
+        this.teleporter(10);
         this.enPrison = true;
     }
 
     public void liberer() {
         this.enPrison = false;
-    }
-
-    public void setPrisonStatus(boolean ps) {
-        this.enPrison = ps;
     }
 
     public int getPos() {
@@ -106,5 +107,25 @@ public class Joueur {
 
     public void switchALancer() {
         this.aLance = !this.aLance;
+    }
+
+    public void stockerCarte(Carte carte) {
+        this.cartes.add(carte);
+    }
+
+    public List<Propriete> getProprietes() {
+        return this.proprietes;
+    }
+
+    public boolean isEnPrison() {
+        return this.enPrison;
+    }
+
+    public List<Carte> getCartes() {
+        return this.cartes;
+    }
+
+    public Case getCurrentCase() {
+        return this.plateau.getCases().get(this.pos);
     }
 }

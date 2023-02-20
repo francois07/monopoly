@@ -1,4 +1,6 @@
-package Model;
+package Model.Cartes;
+
+import Model.Joueur;
 
 public class CarteTeleportation extends Carte {
     private int ncase;
@@ -20,8 +22,12 @@ public class CarteTeleportation extends Carte {
         if (!prisonSansArgent && joueur.getPos() > this.ncase)
             joueur.ajouterArgent(200);
         if (prisonSansArgent)
-            joueur.setPrisonStatus(true);
+            joueur.emprisonner();
+        ;
         joueur.teleporter(this.ncase);
+
+        joueur.getPlateau().getGUI()
+                .println(String.format("Vous vous rendez à \'%s\'", joueur.getCurrentCase().toString()));
     }
 
 }

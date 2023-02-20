@@ -14,6 +14,8 @@ public class FinirCommand extends Command {
 
     gui.println(String.format("%s termine son tour", joueur.toString()));
 
+    plateau.applyLoss();
+
     plateau.nextJoueur();
 
     plateau.printStartOfTurnInfos();

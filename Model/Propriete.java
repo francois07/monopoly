@@ -2,12 +2,9 @@ package Model;
 
 public class Propriete {
     private String nom;
-
     private int[] prix;
-
     private int niveau;
-
-    private int[] loyer;
+    protected int[] loyer;
 
     private Joueur proprietaire;
 

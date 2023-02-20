@@ -1,4 +1,6 @@
-package Model;
+package Model.Cartes;
+
+import Model.Joueur;
 
 public class CarteSortiePrison extends Carte {
 
@@ -7,7 +9,8 @@ public class CarteSortiePrison extends Carte {
     }
 
     public void utiliser(Joueur joueur) {
-        joueur.setPrisonStatus(false);
+        joueur.getPlateau().getGUI().println("Vous sortez de prison !");
+        joueur.liberer();
     }
 
 }

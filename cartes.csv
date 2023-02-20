@@ -14,7 +14,6 @@ CARTE_MOUVEMENT,Reculez de trois cases,false,-3
 CARTE_ARGENT,Vous êtes imposé pour les réparations de voirie à raison de 50 par maison et 150 par hôtel,false,0
 CARTE_ARGENT,Vous avez gagné le prix de mots croisés. Recevez 100,false,100
 CARTE_ARGENT,La banque vous verse un dividende de 50,false,50
-CARTE_ARGENT,Faites des réparations dans toutes vos maisons. Versez pour chaque maison 25. Versez pour chaque hôtel 100,false,0
 CARTE_ARGENT,Amende pour excès de vitesse versez 15,false,-15
 CARTE_ARGENT,Payez pour frais de scolarité 150,false,-150
 CARTE_ARGENT,Amende pour ivresse 20,false,-20

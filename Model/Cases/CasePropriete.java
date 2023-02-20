@@ -1,7 +1,9 @@
-package Model;
+package Model.Cases;
 
 import java.util.Objects;
 
+import Model.Joueur;
+import Model.Propriete;
 import View.GameInterface;
 
 public class CasePropriete extends Case {

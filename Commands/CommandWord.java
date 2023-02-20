@@ -9,7 +9,9 @@ public enum CommandWord {
   UNKNOWN("?", new UnknownCommand()),
   LANCER("lancer", new LancerCommand()),
   ACHETER("acheter", new AcheterCommand()),
-  FINIR("finir", new FinirCommand());
+  CARTES("cartes", new CartesCommand()),
+  FINIR("finir", new FinirCommand()),
+  UTILISER("utiliser", new UtiliserCommand());
 
   private String aCommandWord;
   private Command aCommand;
