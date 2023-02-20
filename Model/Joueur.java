@@ -55,8 +55,6 @@ public class Joueur {
             this.pos = this.pos % n;
             this.ajouterArgent(20000);
         }
-
-        cases.get(this.pos).execute(this);
     }
 
     public void teleporter(final int numeroCase) {
