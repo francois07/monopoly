@@ -30,21 +30,13 @@ import View.Parser;
 
 public class Plateau {
     private int tour;
-
     private int taxes;
-
     private List<Case> cases;
-
     private List<Joueur> joueurs;
-
     private Joueur currentJoueur;
-
     private Stack<Carte> pioche;
-
     private GameInterface gameInterface;
-
     private Parser parser;
-
     private boolean inscription = true;
 
     public Plateau() {
