@@ -69,6 +69,9 @@ public class GameInterface implements ActionListener {
       }
     });
 
+    quitButton.addActionListener(e -> this.frame.dispose());
+    helpButton.addActionListener(e -> this.plateau.parseCommand("help"));
+
     this.entryField.addActionListener(this);
 
     this.frame.pack();
